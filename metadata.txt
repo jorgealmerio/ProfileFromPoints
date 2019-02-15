@@ -1,0 +1,43 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=ProfileFromPoints
+qgisMinimumVersion=3.0
+description=Plots profile or cross section of survey points
+version=1.2
+author=North Dakota State Water Commission
+email=mweier@nd.gov
+
+about=This plugin is designed to station point data (e.g. topography data) and plot it along a centerline. Point data will be plotted using an existing or plugin generated centerline by the shapely library.
+
+tracker=https://github.com/msweier/ProfileFromPoints/issues
+repository=https://github.com/msweier/ProfileFromPoints
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+changelog=
+    3.0 ported to Qgis 3 (Thanks to Jorge Almerio)
+	1.2 added option to label plot w/ point ID (from jorgealmerio), added option to copy just station and elevation w/o header for pasting into HEC-RAS
+    1.1 removed sort on field list, added a no data field to ignore invalid points, reinstated the plotting toolbar
+    1.0 Much faster!!!, fixed many bugs, no longer requires spatialite
+
+# Tags are comma separated with spaces allowed
+tags=survey, point, topography, profile, cross section
+
+homepage=https://github.com/msweier/QGIS-Profile-from-Points-Plugin
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
