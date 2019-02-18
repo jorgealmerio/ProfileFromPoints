@@ -32,6 +32,7 @@ from operator import itemgetter
 from shapely.geometry import Point
 from shapely.geometry import LineString
 
+import qgis
 from qgis.PyQt import QtGui, uic, QtWidgets
 from qgis.PyQt.QtWidgets import QApplication, QMessageBox
 from qgis.PyQt.QtCore import QVariant, Qt
@@ -91,7 +92,16 @@ class ProfileFromPointsDialog(QtWidgets.QDialog, FORM_CLASS):
     def manageGui(self):
         # print('manageGui')
         self.uPointLayer.clear()
-        self.uPointLayer.addItems(utils.getPointLayerNames())
+        Lstptos=utils.getPointLayerNames()
+        self.uPointLayer.addItems(Lstptos)
+        #try to find activelayer and select it in the point combobox
+        try:
+            lyrName = qgis.utils.iface.activeLayer().name()
+            if lyrName in Lstptos:
+                self.uPointLayer.setCurrentText(lyrName)
+        except Exception as e:
+            print('Erro:',str(e))
+            pass
         self.uLineLayer.clear()
         self.uLineLayer.addItems(utils.getLineLayerNames())
 
@@ -274,7 +284,11 @@ class ProfileFromPointsDialog(QtWidgets.QDialog, FORM_CLASS):
         else:
             lineFeat = next(lineLayer.getFeatures())
         lineGeom = lineFeat.geometry()
-        lineShap = LineString(lineGeom.asPolyline())
+        if lineGeom.isMultipart:
+            polilinha = lineGeom.asMultiPolyline()[0]#get only first
+        else:
+            polilinha = lineGeom.asPolyline()
+        lineShap = LineString(polilinha)
         if buff:
             lineBoundary = lineShap.buffer(buff)
         

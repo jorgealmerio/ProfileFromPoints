@@ -92,7 +92,7 @@ def getPointLayerNames():
     layerMap = QgsProject.instance().mapLayers()
     layerNames = []
     for name, layer in layerMap.items():
-        if layer.type() == QgsMapLayer.VectorLayer and layer.wkbType()==QgsWkbTypes.Point:
+        if layer.type() == QgsMapLayer.VectorLayer and layer.geometryType()==QgsWkbTypes.PointGeometry:
             layerNames.append(str(layer.name()))
     return sorted(layerNames)#, cmp=locale.strcoll)
     
@@ -100,7 +100,7 @@ def getLineLayerNames():
     layerMap = QgsProject.instance().mapLayers()
     layerNames = []
     for name, layer in layerMap.items():
-        if layer.type() == QgsMapLayer.VectorLayer and layer.wkbType()==QgsWkbTypes.LineString:
+        if layer.type() == QgsMapLayer.VectorLayer and layer.geometryType()==QgsWkbTypes.LineGeometry:
             layerNames.append(str(layer.name()))
     return sorted(layerNames)#, cmp=locale.strcoll)
 
