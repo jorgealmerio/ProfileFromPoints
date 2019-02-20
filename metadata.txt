@@ -11,13 +11,17 @@ name=ProfileFromPoints
 qgisMinimumVersion=3.0
 description=Plots profile or cross section of survey points
 version=1.2
-author=North Dakota State Water Commission
-email=mweier@nd.gov
+#North Dakota State Water Commission (creator)
+author=Jorge Almerio (maintainer)
+#mweier@nd.gov (author)
+email=jorgealmerio@yahoo.com.br 
 
 about=This plugin is designed to station point data (e.g. topography data) and plot it along a centerline. Point data will be plotted using an existing or plugin generated centerline by the shapely library.
 
-tracker=https://github.com/msweier/ProfileFromPoints/issues
-repository=https://github.com/msweier/ProfileFromPoints
+#tracker=https://github.com/msweier/ProfileFromPoints/issues
+tracker=https://github.com/jorgealmerio/ProfileFromPoints/issues
+#repository=https://github.com/msweier/ProfileFromPoints
+repository=https://github.com/jorgealmerio/ProfileFromPoints
 # End of mandatory metadata
 
 # Recommended items:
@@ -32,7 +36,7 @@ changelog=
 # Tags are comma separated with spaces allowed
 tags=survey, point, topography, profile, cross section
 
-homepage=https://github.com/msweier/QGIS-Profile-from-Points-Plugin
+homepage=https://github.com/jorgealmerio/ProfileFromPoints/blob/master/README.md
 category=Plugins
 icon=icon.png
 # experimental flag
